@@ -7,6 +7,9 @@
 <div class="container-flruid">
     <main class="container text-center col-md-10 p-4 shadow-lg p-3 mb-5 bg-body-tertiary rounded">
         <h1 th:text="${contenido}"></h1>
+
+        <a class="btn btn-primary" th:href="@{/libro/generar_pdf}" role="button">PDF</a>
+
         <table th:if="${lista!=null}" class="table table-striped table-hover table-sm">
             <thead class="table-dark table-bordered">
             <tr>

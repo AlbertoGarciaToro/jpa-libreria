@@ -2,8 +2,13 @@ package mx.fes.unam.controller;
 
 import jakarta.validation.Valid;
 import mx.fes.unam.model.entities.libro.LibroDTO;
-import mx.fes.unam.service.libreria.LibroService;
+import mx.fes.unam.service.libro.LibroService;
+import mx.fes.unam.service.libro.PdfLibroService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,8 +20,18 @@ import java.util.List;
 @Controller
 @RequestMapping("libro")
 public class LibroController {
-    @Autowired
-    private LibroService libroService;
+
+    @Value("${ejemplo.imagen.ruta}")
+    private String archivoRuta;
+
+    private final LibroService libroService;
+    private final PdfLibroService pdfLibroService;
+
+    public LibroController(LibroService libroService, PdfLibroService pdfLibroService) {
+        this.libroService = libroService;
+        this.pdfLibroService = pdfLibroService;
+    }
+
 
     @GetMapping("ver_lista")
     public String prueba(Model model){
@@ -53,6 +68,24 @@ public class LibroController {
         redirectAttributes.addFlashAttribute("success","Se almaceno con éxito Lote");
         return "redirect:/libro/ver_lista";
     }
+
+
+    @GetMapping("generar_pdf")
+    public ResponseEntity<byte[]> generar(Model model) {
+        List<LibroDTO> lista = libroService.listarLibros();
+        byte[] pdfBytes = pdfLibroService.generatePdf(lista);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_PDF);
+        headers.setContentDispositionFormData("attachment", "reporte.pdf");
+        headers.setCacheControl("must-revalidate, post-check=0, pre-check=0");
+        return ResponseEntity.ok()
+                .headers(headers)
+                .body(pdfBytes);
+    }
+
+
+
     @GetMapping("alta-libro")
     public String alta(Model model){
         model.addAttribute("libro",new LibroDTO());

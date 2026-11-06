@@ -1,4 +1,4 @@
-package mx.fes.unam.service.libreria;
+package mx.fes.unam.service.libro;
 
 import mx.fes.unam.model.entities.libro.LibroDTO;
 import mx.fes.unam.model.entities.libro.LibroEntity;

@@ -1,8 +1,7 @@
 package mx.fes.unam.service;
 
 import mx.fes.unam.model.entities.libro.LibroDTO;
-import mx.fes.unam.model.entities.libro.LibroEntity;
-import mx.fes.unam.service.libreria.LibroService;
+import mx.fes.unam.service.libro.LibroService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

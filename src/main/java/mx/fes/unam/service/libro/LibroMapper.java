@@ -1,10 +1,8 @@
-package mx.fes.unam.service.libreria;
+package mx.fes.unam.service.libro;
 
 import mx.fes.unam.model.entities.libro.LibroDTO;
 import mx.fes.unam.model.entities.libro.LibroEntity;
 import org.springframework.stereotype.Component;
-
-import java.math.BigDecimal;
 
 @Component
 public class LibroMapper {
