@@ -4,45 +4,102 @@
 <head th:fragment="head">
     <meta charset="UTF-8">
     <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
+    <style>
+
+
+        .table-hover {
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        /* Transiciones */
+        .table-hover tbody tr > td {
+            transition: background-color 180ms ease,
+            color 180ms ease;
+        }
+
+        /* Estado hover */
+        .table-hover tbody tr:hover > td {
+            background-color: #f1f5f9 !important;
+            color: #0f172a;
+        }
+
+        /* Indicador lateral */
+        .table-hover tbody tr:hover > td:first-child {
+            box-shadow: inset 3px 0 0 #2563eb;
+        }
+
+        /* Bordes discretos */
+        .table-hover tbody tr > td {
+            border-bottom: 1px solid #e8edf3;
+        }
+
+        /* Evitar efectos sobre el encabezado */
+        .table-hover thead tr:hover > th {
+            background-color: inherit;
+        }
+    </style>
     <title>Title</title>
 </head>
 <body>
 <header th:fragment="header">
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Libreria</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Libro
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" th:href="@{/libro/ver_lista}">Lista</a></li>
-                        <li><a class="dropdown-item" th:href="@{/libro/alta-libro}">Crear</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Usuario
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" th:href="@{/usuario/ver_usuario}">Lista</a></li>
-                        <li><a class="dropdown-item" href="#">Crear</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                    </ul>
-                </li>
-            </ul>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Libreria</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            Libro
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" th:href="@{/libro/ver_lista}">Lista</a></li>
+                            <li><a class="dropdown-item" th:href="@{/libro/alta-libro}">Crear</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            Usuario
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" th:href="@{/usuario/ver_lista}">Lista</a></li>
+                            <li><a class="dropdown-item" href="#">Crear</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 </header>
 </body>
+
+
 <footer th:fragment="footer">
     <script th:src="@{/bootstrap/js/bootstrap.bundle.min.js}"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const alerta = document.getElementById('alertaExito');
+
+            if (alerta) {
+                setTimeout(() => {
+                    let bsAlert = new bootstrap.Alert(alerta);
+                    bsAlert.close();
+                }, 3000);
+            }
+        });
+    </script>
 </footer>
 </html>

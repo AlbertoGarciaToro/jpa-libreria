@@ -2,7 +2,7 @@ package mx.fes.unam.model.entities.Venta;
 
 import jakarta.persistence.*;
 import lombok.*;
-import mx.fes.unam.model.entities.Usuario.UsuarioEntiry;
+import mx.fes.unam.model.entities.Usuario.UsuarioEntity;
 import mx.fes.unam.model.entities.libro.LibroEntity;
 
 import java.math.BigDecimal;
@@ -30,7 +30,7 @@ public class VentaEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "usuario_id", nullable = false)
-    private UsuarioEntiry usuario;
+    private UsuarioEntity usuario;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "libro_id", nullable = false)
