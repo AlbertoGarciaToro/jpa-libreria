@@ -11,8 +11,11 @@ public class LibroMapper {
         LibroEntity libro=new LibroEntity();
         if(dto!=null){
             libro.setId(dto.getId());
+            libro.setTitulo(dto.getTitulo());
             libro.setAutor(dto.getAutor());
+            libro.setIsbn(dto.getIsbn());
             libro.setPrecio(dto.getPrecio());
+            libro.setStock(dto.getStock());
         }
         return libro;
     }
@@ -22,8 +25,11 @@ public class LibroMapper {
         if(libro!=null){
             dto=new LibroDTO(
                     libro.getId(),
+                    libro.getTitulo(),
                     libro.getAutor(),
-                    libro.getPrecio()
+                    libro.getIsbn(),
+                    libro.getPrecio(),
+                    libro.getStock()
             );
         }
 

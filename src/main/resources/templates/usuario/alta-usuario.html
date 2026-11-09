@@ -13,7 +13,7 @@
         <h1 th:text="${contenido}"></h1>
 
         <div class="card-body">
-            <form th:action="@{/usuario/salvar-usuario}" th:object="${usuario}" method="post">
+            <form th:action="@{/usuario/salvar-usuario}" th:object="${usuario}" method="post" novalidate>
 
                 <div th:if="${#fields.hasErrors('*')}" class='alert alert-danger' role="alert">
                     Verifique los siguientes errores
