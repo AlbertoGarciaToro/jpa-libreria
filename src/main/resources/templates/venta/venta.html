@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="es">
+
+<head th:replace="~{plantillas/plantilla :: head}"></head>
+
+<body>
+<header th:replace="~{plantillas/plantilla :: header}"></header>
+<div class="container-fluid">
+
+  <main class="container text-center col-md-10 p-4 shadow-sm mb-5 bg-body-tertiary rounded">
+
+    <!--            notificacion de eliminacion/modificacion-->
+    <div th:replace="fragments/alertas :: alerta-exito"></div>
+
+    <h1 th:text="${contenido}"></h1>
+
+    <a class="btn btn-primary" th:href="@{/venta/generar_pdf}" role="button">PDF</a>
+
+    <table th:if="${lista!=null}" class="table table-striped table-hover table-sm">
+      <thead class="table-dark table-bordered">
+      <tr>
+        <th scope="col">Fecha</th>
+        <th scope="col">Cantidad</th>
+        <th scope="col">Total</th>
+        <th scope="col"> Usuario</th>
+        <th scope="col"> Libro</th>
+        <th scope="col"> Operaciones</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="list: ${lista}">
+        <td th:text="${list.fecha}"></td>
+        <td th:text="${list.cantidad}"></td>
+        <td th:text="${list.total}"></td>
+        <td th:text="${list.nombreUsuario}"></td>
+        <td th:text="${list.tituloLibro}"></td>
+        <td>
+          <a th:href="@{/venta/modificar-venta/{id} (id=${list.id})}"
+             class="btn btn-success">Modificar <i class="fas fa-pen-nib"
+                                                  aria-hidden="true"></i> </a>
+          <a th:href="@{/venta/eliminar-venta/{id} (id=${list.id})}"
+             class="btn btn-danger">Eliminar <i class="fas fa-trash-alt"
+                                                aria-hidden="true"></i> </a>
+
+        </td>
+
+      </tr>
+      </tbody>
+    </table>
+  </main>
+</div>
+<footer th:replace="~{plantillas/plantilla::footer}"></footer>
+
+</body>
+
+</html>

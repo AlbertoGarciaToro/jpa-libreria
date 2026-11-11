@@ -28,10 +28,10 @@ public class PdfLibroService {
             document.add(new Paragraph(" "));
 
             PdfPTable table = new PdfPTable(5);
-            table.setWidthPercentage(100); // Ocupa todo el ancho de la hoja
+            table.setWidthPercentage(100); // ocupa todo el ancho de la hoja
             table.setWidths(new float[]{3.0f, 3.0f, 2.5f, 1.5f, 1.5f});
 
-            String[] encabezados = {"Título", "Autor", "ISBN", "Precio", "Stock"};
+            String[] encabezados = {"Titulo", "Autor", "ISBN", "Precio", "Stock"};
             for (String textoHeader : encabezados) {
                 PdfPCell celda = new PdfPCell(new Phrase(textoHeader));
                 celda.setBackgroundColor(new Color(167, 218, 255));

@@ -2,6 +2,7 @@
 
     import jakarta.validation.Valid;
     import mx.fes.unam.model.entities.Usuario.UsuarioDTO;
+    import mx.fes.unam.model.entities.Venta.VentaDTO;
     import mx.fes.unam.model.entities.libro.LibroDTO;
     import mx.fes.unam.service.libro.PdfLibroService;
     import mx.fes.unam.service.usuario.PdfUsuarioService;
@@ -87,6 +88,14 @@
             return ResponseEntity.ok()
                     .headers(headers)
                     .body(pdfBytes);
+        }
+
+
+        @GetMapping("alta-usuario")
+        public String alta(Model model){
+            model.addAttribute("usuario",new UsuarioDTO());
+            model.addAttribute("contenido","Alta Usuario");
+            return "usuario/alta-usuario";
         }
 
     }

@@ -25,24 +25,20 @@ public class PdfUsuarioService {
             title.setAlignment(Element.ALIGN_CENTER);
             document.add(title);
 
-            // Creamos una tabla de 3 columnas (Nombre, Email, Teléfono)
             PdfPTable table = new PdfPTable(3);
             table.setWidthPercentage(100); // Opcional: para que ocupe todo el ancho
 
-            // Cabecera: Nombre
             PdfPCell celda = new PdfPCell(new Phrase("Nombre"));
             celda.setBackgroundColor(new Color(167, 218, 255));
             celda.setPadding(8f);
             table.addCell(celda);
 
-            // Cabecera: Email
             celda = new PdfPCell(new Phrase("Email"));
             celda.setBackgroundColor(new Color(167, 218, 255));
             celda.setPadding(8f);
             table.addCell(celda);
 
-            // Cabecera: Teléfono
-            celda = new PdfPCell(new Phrase("Teléfono"));
+            celda = new PdfPCell(new Phrase("Telefono"));
             celda.setBackgroundColor(new Color(167, 218, 255));
             celda.setPadding(8f);
             table.addCell(celda);
