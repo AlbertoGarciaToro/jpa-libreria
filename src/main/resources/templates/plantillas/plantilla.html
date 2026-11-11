@@ -6,7 +6,6 @@
     <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
     <style>
 
-
         .table-hover {
             border-collapse: separate;
             border-spacing: 0;
@@ -39,8 +38,11 @@
             background-color: inherit;
         }
     </style>
+
+
     <title>Title</title>
 </head>
+
 <body>
 <header th:fragment="header">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -73,12 +75,27 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" th:href="@{/usuario/ver_lista}">Lista</a></li>
-                            <li><a class="dropdown-item" href="#">Crear</a></li>
+                            <li><a class="dropdown-item" th:href="@{/usuario/alta-usuario}">Crear</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
                         </ul>
                     </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            Venta
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" th:href="@{/venta/ver_lista}">Lista</a></li>
+                            <li><a class="dropdown-item" th:href="@{/venta/alta-venta}">Crear</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                        </ul>
+                    </li>
+
                 </ul>
             </div>
         </div>

@@ -7,12 +7,14 @@ import mx.fes.unam.model.entities.libro.LibroEntity;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-
 @Entity
 @Table(name = "ventas")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
+@ToString(exclude = {"usuario", "libro"})
 public class VentaEntity {
 
     @Id

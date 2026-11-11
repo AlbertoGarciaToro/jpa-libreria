@@ -1,4 +1,4 @@
-INSERT INTO usuario (nombre, email, telefono) VALUES
+INSERT  INTO usuario (nombre, email, telefono) VALUES
 ('Carlos Gómez', 'carlos.gomez@example.com', '5512345678'),
 ('María Rodríguez', 'maria.rodriguez@example.com', '5523456789'),
 ('Juan Pérez', 'juan.perez@example.com', '5534567890'),

@@ -9,10 +9,12 @@ import java.util.List;
 
 @Entity
 @Table(name = "usuario")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@ToString(exclude = {"ventas"})
 public class UsuarioEntity {
 
     @Id
