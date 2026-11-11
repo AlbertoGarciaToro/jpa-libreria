@@ -7,13 +7,14 @@ import mx.fes.unam.model.entities.Venta.VentaEntity;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-
 @Entity
 @Table(name = "libros")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@ToString(exclude = {"ventas"})
 public class LibroEntity {
 
     @Id

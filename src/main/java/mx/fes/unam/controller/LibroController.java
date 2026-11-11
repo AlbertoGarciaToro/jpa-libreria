@@ -64,6 +64,7 @@ public class LibroController {
             modelo.addAttribute("contenido","Verifica los errores siguientes");
             return "libro/alta-libro";
         }
+
         libroService.guardarLibro(libro);
         redirectAttributes.addFlashAttribute("success","Se almaceno con éxito Lote");
         return "redirect:/libro/ver_lista";
